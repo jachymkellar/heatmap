@@ -1,0 +1,160 @@
+  
+  <!DOCTYPE html>
+  <html lang="cs" dir="ltr">
+    <head>
+    <title>Google Heatmap</title>
+      <meta charset="utf-8">
+      <meta name="robots" content="index,follow">
+      <meta name="author" content="Jáchym Kellar">
+      <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+      <link rel="stylesheet" href="../css/default.css">
+    </head>
+
+  <body>
+
+      <div id="description">
+      Google heatmap demo<br>
+      <a href="http://jachymkellar.github.io/heatmap/" target="_blank">http://jachymkellar.github.io/heatmap</a>
+      </div>
+
+      <div id="heatmapLink">
+      <table class="tableLink">
+      <tr><td>
+      <img src="../data/icon.jpg" alt="Link">
+      </td><td>
+      <a href="../index.html">Show Leaflet<br>heatmap demo</a>
+      </td></tr>
+      </table>
+      </div>
+
+  
+      <input type="checkbox" id="heatMapOn"  onclick="toggleHeatmap()" checked>
+      <div id="heatMap">Heatmap</div>
+      <div id="radius">Radius</div>
+      <input type="range" min="1" max="20" value="10" oninput="changeRadius(this.value)" ochange="changeRadius(this.value)" id="myRange">
+      <div id="radiusValue">N</div>
+      
+      <div id="max">Max</div>
+      <input type="range" min="100" max="10000" value="5000" step="100" oninput="changeMax(this.value)" ochange="changeMax(this.value)" id="myRange2">
+      <div id="radiusValue2">N</div>
+      
+      <div id="opacity">Opacity</div>
+      <input type="range" min="0.0" max="1.0" value="0.6" step="0.1" oninput="changeOpacity(this.value)" ochange="changeOpacity(this.value)" id="myRange3">
+      <div id="opacityValue">0.6</div>
+
+      <div id="data">Data</div>
+        <select id="dataSelect" onchange="location = this.options[this.selectedIndex].value;">
+         <option value="heatmap_1k_google.html">birm_lonlat_1000</option>
+         <option value="heatmap_5k_google.html">birm_lonlat_5000</option>
+         <option value="heatmap_10k_google.html">birm_lonlat_10000</option>
+         <option value="heatmap_birm_lonlat_all_google.html">birm_lonlat_all</option>
+         <option value="heatmap_100k_google.html">lonlat100k</option>
+         <option value="heatmap_250k_google.html">lonlat250k</option>
+         <option value="heatmap_500k_google.html" selected>lonlat500k</option>
+         <option value="heatmap_750k_google.html">lonlat750k</option>
+         <option value="heatmap_1000k_google.html">lonlat1000k</option>
+        </select>
+      
+      
+
+      
+    <div id="map"></div>
+    <script src="../data/lonlat500k_google.js"></script>
+
+    <script>
+
+window.onload = function (){ 
+    console.log("app is loaded"); 
+};
+
+
+var map, heatmap;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 6,
+    center: {lat: 54.1, lng: -2.1},
+    mapTypeControl: false,
+    styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
+  });
+
+
+  heatmap = new google.maps.visualization.HeatmapLayer({
+    data: getPoints(),
+    gradient: getGradient(),
+    //dissipating: true,
+    map: map
+  });
+
+  
+}
+
+
+function getGradient() {
+  var gradient = [
+  'rgba(102, 255, 0, 0)',
+	'rgba(102, 255, 0, 1)',
+	'rgba(147, 255, 0, 1)',
+	'rgba(193, 255, 0, 1)',
+	'rgba(238, 255, 0, 1)',
+	'rgba(244, 227, 0, 1)',
+	'rgba(249, 198, 0, 1)',
+  'rgba(255, 170, 0, 1)',
+	'rgba(255, 113, 0, 1)',
+	'rgba(255, 57, 0, 1)',
+	'rgba(255, 0, 0, 1)'
+    ]
+  return gradient;
+}
+
+function getGradient2() {
+  var gradient = [
+  'rgba(0, 255, 0, 0)',
+	'rgba(0, 255, 0, 1)',
+	'rgba(255, 255, 0, 1)',
+	'rgba(255, 0, 0, 1)'
+    ]
+  return gradient;
+}
+
+function toggleHeatmap() {
+console.time("heatmap");
+heatmap.setMap(heatmap.getMap() ? null : map);
+console.timeEnd("heatmap");
+}
+
+function changeMax(value){
+  var max = parseInt(value);
+  document.getElementById("radiusValue2").innerHTML = max;
+  heatmap.set('maxIntensity', max);
+}
+
+/*
+function getMax(){
+  var y =  heatmap.get('maxIntensity');
+  document.getElementById("maximum").innerHTML = y;
+}
+*/
+
+function changeRadius(value) {
+  var radiusNumber = parseInt(value);
+  document.getElementById("radiusValue").innerHTML = radiusNumber;
+  heatmap.set('radius', radiusNumber);
+}
+
+
+function changeOpacity(value) {
+  var opacityNumber = parseFloat(value);
+  document.getElementById("opacityValue").innerHTML = opacityNumber;
+  heatmap.set('opacity', opacityNumber);
+}
+
+
+
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWsIlajLYbOuSQvdZsTaMRch-IH_iYx-Q&signed_in=true&libraries=visualization&callback=initMap">
+    </script>
+  </body>
+</html>
