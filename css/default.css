@@ -1,0 +1,186 @@
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
+      #heatMap, #radius, #max, #opacity, #blur, #data, #dataSelect{
+        background: rgb(255,255,255);
+        padding: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        z-index: 5;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgb(0,0,0);
+        width: 80px;
+        text-align: center;
+      }
+      #heatMap{
+        top: 70px;
+        left: 20px;
+      }
+      #radius{
+        top: 105px;
+        left: 20px;
+      }
+      #max{
+        top: 140px;
+        left: 20px;
+      }
+      #data{
+        padding-top: 7px;
+        top: 260px;
+        left: 20px;
+        height: 16px;
+      }
+      #dataSelect{
+        top: 260px;
+        left: 120px;
+        border: 0px;
+        width: 150px;
+      }
+      #opacity{
+        top: 220px;
+        left: 20px;
+      }
+      #blur{
+        top: 300px;
+        left: 20px;
+      }
+      #myRange{
+        position: absolute;
+        top: 105px;
+        left: 160px;
+        z-index: 5;
+        width: 150px;
+      }
+      #myRange2{
+        position: absolute;
+        top: 180px;
+        left: 20px;
+        z-index: 5;
+        width: 290px;
+      }
+      #myRange3{
+        position: absolute;
+        top: 220px;
+        left: 165px;
+        z-index: 5;
+        width: 145px;
+      }
+      #myRange4{
+        position: absolute;
+        top: 300px;
+        left: 165px;
+        z-index: 5;
+        width: 145px;
+      }
+      #heatMapOn{
+        width: 25px;
+        z-index: 5;
+        top: 73px;
+        left: 120px;
+        position: absolute;
+        z-index: 5;
+      }
+      #heatMapOn2{
+        width: 25px;
+        z-index: 5;
+        top: 73px;
+        left: 140px;
+        position: absolute;
+        z-index: 5;
+      }
+      #radiusValue{
+        background: rgb(255,255,255);
+        padding: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        z-index: 5;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgb(0,0,0);
+        width: 20px;
+        text-align: center;
+        top: 105px;
+        left: 120px;
+      }
+      #radiusValue2{
+        background: rgb(255,255,255);
+        padding: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        z-index: 5;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgb(0,0,0);
+        width: 40px;
+        text-align: center;
+        top: 140px;
+        left: 120px;
+      }
+      #opacityValue{
+        background: rgb(255,255,255);
+        padding: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        z-index: 5;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgb(0,0,0);
+        width: 30px;
+        text-align: center;
+        top: 220px;
+        left: 120px;
+      }
+      #blurValue{
+        background: rgb(255,255,255);
+        padding: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        z-index: 5;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgb(0,0,0);
+        width: 30px;
+        text-align: center;
+        top: 300px;
+        left: 120px;
+      }
+
