@@ -74,7 +74,7 @@
       .tableLink{
         margin-left: 7px;
       }
-      #heatMap, #radius, #max, #opacity, #blur, #data, #dataSelect{
+      #heatMap, #radius, #max, #opacity, #blur, #data, #dataSelect, #testButton{
         background: rgb(255,255,255);
         padding: 5px;
         -webkit-border-radius: 5px;
@@ -88,6 +88,10 @@
         width: 80px;
         text-align: center;
       }
+    #testButton {
+    	top: 500px;
+    	left: 20px;
+    }
       #heatMap{
         top: 70px;
         left: 20px;
