@@ -37,12 +37,12 @@
 
       <div id="heatMap">Heatmap</div>
       <div id="radius">Radius</div>
-      <input type="range" min="1" max="30" value="15" oninput="changeRadius(this.value)" ochange="changeRadius(this.value)" id="myRange">
-      <div id="radiusValue">15</div>
+      <input type="range" min="1" max="30" value="20" oninput="changeRadius(this.value)" ochange="changeRadius(this.value)" id="myRange">
+      <div id="radiusValue">20</div>
       
       <div id="max">Max</div>
-      <input type="range" min="0.1" max="4.0" value="0.7" step="0.1" oninput="changeMax(this.value)" ochange="changeMax(this.value)" id="myRange2">
-      <div id="radiusValue2">0.7</div>
+      <input type="range" min="0.1" max="2.0" value="0.9" step="0.1" oninput="changeMax(this.value)" ochange="changeMax(this.value)" id="myRange2">
+      <div id="radiusValue2">0.9</div>
       
       <div id="opacity">StartOpacity</div>
       <input type="range" min="0.0" max="1.0" value="0.0" step="0.1" oninput="changeOpacity(this.value)" ochange="changeOpacity(this.value)" id="myRange3">
@@ -53,10 +53,10 @@
          <option value="heatmap_1k.html">birm_lonlat_1000</option>
          <option value="heatmap_5k.html">birm_lonlat_5000</option>
          <option value="heatmap_10k.html">birm_lonlat_10000</option>
-         <option value="../index.html">birm_lonlat_all</option>
          <option value="heatmap_15k.html">birm_lonlat_15000</option>
-         <option value="heatmap_20k.html">birm_lonlat_20000</option>         
-         <option value="heatmap_100k.html" selected>lonlat100k</option>
+         <option value="heatmap_20k.html" selected>birm_lonlat_20000</option>         
+         <option value="../index.html">birm_lonlat_all</option>
+         <option value="heatmap_100k.html">lonlat100k</option>
          <option value="heatmap_250k.html">lonlat250k</option>
          <option value="heatmap_500k.html">lonlat500k</option>
          <option value="heatmap_750k.html">lonlat750k</option>
@@ -71,12 +71,12 @@
     
     
 <div id="map"></div>
-<script src="../data/lonlat100k_converted.js"></script>
+<script src="../data/birm_lonlat_20000_converted.js"></script>
   <script>
 
 		var map = new L.Map('map', {
-                center: [54.1, -2.1],
-                zoom: 6,
+                center: [52.5, -1.85],
+                zoom: 11,
                 zoomControl: false
 
     });
@@ -94,8 +94,8 @@
 
 addressPoints = addressPoints.map(function (p) { return [p[0], p[1]]; });
 var heat = L.heatLayer(addressPoints, {
-radius: 15,
-max: 0.7,
+radius: 20,
+max: 0.9,
 gradient: {0.4: 'rgb(0, 255, 0)', 0.65: 'rgb(255, 255, 0)', 1: 'rgb(255, 0, 0)'}
 
 

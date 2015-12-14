@@ -4999,6 +4999,6 @@ new google.maps.LatLng(52.426126, -1.935112),
 new google.maps.LatLng(52.468425, -1.878376),
 new google.maps.LatLng(52.47152, -1.780321),
 new google.maps.LatLng(52.39629, -1.961315),
-new google.maps.LatLng(52.546641, -1.811062),
+new google.maps.LatLng(52.546641, -1.811062)
 ];
 }
