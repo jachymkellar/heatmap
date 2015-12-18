@@ -1,0 +1,61 @@
+  
+  <!DOCTYPE html>
+  <html lang="cs" dir="ltr">
+    <head>
+    <title>Leaflet.markercluster</title>
+      <meta charset="utf-8">
+      <meta name="robots" content="index,follow">
+      <meta name="author" content="Jáchym Kellar">
+      <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+      <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+      <script src="dist/leaflet-heat.js"></script>
+      <link rel="stylesheet" href="css/default.css">
+    	<link rel="stylesheet" href="dist/MarkerCluster.css" />
+    	<link rel="stylesheet" href="dist/MarkerCluster.Default.css" />
+    	<script src="dist/leaflet.markercluster-src.js"></script>
+    </head>
+    <body>
+    
+
+    
+    
+    
+<div id="map"></div>
+<script src="data/birm_lonlat_all_converted.js"></script>
+  <script>
+
+		var map = new L.Map('map', {
+                center: [52.5, -1.85],
+                zoom: 12,
+                zoomControl: false
+
+    });
+
+
+		L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+}).addTo(map);
+
+
+ L.control.zoom({position: 'bottomright'}).addTo(map);
+
+		var markers = L.markerClusterGroup();
+		for (var i = 0; i < addressPoints.length; i++) {
+			var a = addressPoints[i];
+			var title = a[2];
+			var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title });
+			marker.bindPopup(title);
+			markers.addLayer(marker);
+		}
+
+		map.addLayer(markers);
+
+	</script>
+
+
+
+    </body>
+  </html>
