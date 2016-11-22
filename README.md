@@ -7,6 +7,6 @@ Test apps for comparison with: http://jezekjan.github.io/webglayer/
 Leaflet.heat plugin  
 https://github.com/Leaflet/Leaflet.heat
 
-Google Maps Javacsript API Heatmap Layer  
+Google Maps Javacsript API - Heatmap Layer  
 https://developers.google.com/maps/documentation/javascript/heatmaplayer
 
